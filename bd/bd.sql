@@ -22,6 +22,7 @@ USE `mydb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
   `id` INT auto_increment NOT NULL,
+   `nome` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `senha` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
@@ -33,7 +34,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`pessoa` (
   `id` INT auto_increment NOT NULL,
-  `nome` VARCHAR(100) NOT NULL,
   `saldo` DECIMAL NOT NULL,
   `usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Despesa` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO usuario (email, senha) VALUES ('teste@gmail.com', 'teste');
-INSERT INTO pessoa (nome, saldo, usuario_id) VALUES ('Geraldo Fenomeno', 1200, 1);
+INSERT INTO usuario (nome,email, senha) VALUES ('Geraldo Fenomeno','teste@gmail.com', 'teste');
+INSERT INTO pessoa (saldo, usuario_id) VALUES (1200, 1);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
