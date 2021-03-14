@@ -13,7 +13,14 @@ class Despesa extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('despesa', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('valor');
+            $table->string('tipo_despesa');
+            $table->unsignedBigInteger('pessoa_id');
+            $table->foreign('pessoa_id')->references('id')->on('pessoa');
+            $table->timestamps();
+        });
     }
 
     /**

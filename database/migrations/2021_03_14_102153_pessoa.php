@@ -13,7 +13,19 @@ class Pessoa extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('pessoa', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('saldo');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->timestamps();
+        });
+        DB::table('pessoa')->insert(
+            array(
+                'saldo' =>  1200,
+                'users_id' => 1
+            )
+        );
     }
 
     /**
