@@ -14,34 +14,43 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
 
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
 --
--- Table structure for table `despesa`
+-- Table structure for table `despesas`
 --
 
-DROP TABLE IF EXISTS `despesa`;
+DROP TABLE IF EXISTS `despesas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `despesa` (
+CREATE TABLE `despesas` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `valor` decimal(8,2) NOT NULL,
   `tipo_despesa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pessoa_id` bigint(20) unsigned NOT NULL,
+  `pessoas_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `despesa_pessoa_id_foreign` (`pessoa_id`),
-  CONSTRAINT `despesa_pessoa_id_foreign` FOREIGN KEY (`pessoa_id`) REFERENCES `pessoa` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `despesas_pessoas_id_foreign` (`pessoas_id`),
+  CONSTRAINT `despesas_pessoas_id_foreign` FOREIGN KEY (`pessoas_id`) REFERENCES `pessoas` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `despesa`
+-- Dumping data for table `despesas`
 --
 
-LOCK TABLES `despesa` WRITE;
-/*!40000 ALTER TABLE `despesa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `despesa` ENABLE KEYS */;
+LOCK TABLES `despesas` WRITE;
+/*!40000 ALTER TABLE `despesas` DISABLE KEYS */;
+INSERT INTO `despesas` VALUES (1,340.00,'Cartão de Crédito',1,NULL,NULL);
+/*!40000 ALTER TABLE `despesas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -94,7 +103,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2021_03_14_102153_pessoa',1),(5,'2021_03_14_102244_despesa',1),(6,'2021_03_14_102322_receita',1);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2021_03_14_102153_pessoas',2),(5,'2021_03_14_102244_despesas',2),(6,'2021_03_14_102322_receitas',2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,61 +132,61 @@ LOCK TABLES `password_resets` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `pessoa`
+-- Table structure for table `pessoas`
 --
 
-DROP TABLE IF EXISTS `pessoa`;
+DROP TABLE IF EXISTS `pessoas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pessoa` (
+CREATE TABLE `pessoas` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `saldo` decimal(8,2) NOT NULL,
   `users_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `pessoa_users_id_foreign` (`users_id`),
-  CONSTRAINT `pessoa_users_id_foreign` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
+  KEY `pessoas_users_id_foreign` (`users_id`),
+  CONSTRAINT `pessoas_users_id_foreign` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pessoa`
+-- Dumping data for table `pessoas`
 --
 
-LOCK TABLES `pessoa` WRITE;
-/*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES (1,1200.00,1,NULL,NULL);
-/*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
+LOCK TABLES `pessoas` WRITE;
+/*!40000 ALTER TABLE `pessoas` DISABLE KEYS */;
+INSERT INTO `pessoas` VALUES (1,1200.00,1,NULL,NULL);
+/*!40000 ALTER TABLE `pessoas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `receita`
+-- Table structure for table `receitas`
 --
 
-DROP TABLE IF EXISTS `receita`;
+DROP TABLE IF EXISTS `receitas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `receita` (
+CREATE TABLE `receitas` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `valor` decimal(8,2) NOT NULL,
   `tipo_receita` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pessoa_id` bigint(20) unsigned NOT NULL,
+  `pessoas_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `receita_pessoa_id_foreign` (`pessoa_id`),
-  CONSTRAINT `receita_pessoa_id_foreign` FOREIGN KEY (`pessoa_id`) REFERENCES `pessoa` (`id`)
+  KEY `receitas_pessoas_id_foreign` (`pessoas_id`),
+  CONSTRAINT `receitas_pessoas_id_foreign` FOREIGN KEY (`pessoas_id`) REFERENCES `pessoas` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `receita`
+-- Dumping data for table `receitas`
 --
 
-LOCK TABLES `receita` WRITE;
-/*!40000 ALTER TABLE `receita` DISABLE KEYS */;
-/*!40000 ALTER TABLE `receita` ENABLE KEYS */;
+LOCK TABLES `receitas` WRITE;
+/*!40000 ALTER TABLE `receitas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `receitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -207,7 +216,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Jorge Amado','teste@gmail.com',NULL,'teste123',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Jorge Amado','teste@gmail.com',NULL,'$2y$10$zoAQiCL6LGPLmkNGkcdzOO4LGf4d45nviSZtjyEJQI3pTDw2YMLGq',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -220,4 +229,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-14  9:00:38
+-- Dump completed on 2021-03-15 16:21:30

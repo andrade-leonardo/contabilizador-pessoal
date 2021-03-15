@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', function() {
+    return view('auth/login');
+});
+
+Route::get('/despesas', [App\Http\Controllers\ControladorDespesa::class, 'index']); 
+Route::get('/despesas/novo', [App\Http\Controllers\ControladorDespesa::class, 'create']); 
+Route::post('/despesas', [App\Http\Controllers\ControladorDespesa::class, 'store']); 
+Route::get('/despesas/apagar/{id}', [App\Http\Controllers\ControladorDespesa::class, 'destroy']);
+Route::get('/despesas/editar/{id}', [App\Http\Controllers\ControladorDespesa::class, 'edit']);
+Route::post('/despesas/{id}', [App\Http\Controllers\ControladorDespesa::class, 'update']);
+
 

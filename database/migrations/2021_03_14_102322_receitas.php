@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Despesa extends Migration
+class Receitas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class Despesa extends Migration
      */
     public function up()
     {
-        Schema::create('despesa', function (Blueprint $table) {
+        Schema::create('receitas', function (Blueprint $table) {
             $table->id();
             $table->decimal('valor');
-            $table->string('tipo_despesa');
-            $table->unsignedBigInteger('pessoa_id');
-            $table->foreign('pessoa_id')->references('id')->on('pessoa');
+            $table->string('tipo_receita');
+            $table->unsignedBigInteger('pessoas_id');
+            $table->foreign('pessoas_id')->references('id')->on('pessoas');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class Despesa extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('despesa');
+        Schema::dropIfExists('receitas');
     }
 }
