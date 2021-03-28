@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Receita;
 
 class ControladorReceita extends Controller
 {
@@ -13,7 +15,8 @@ class ControladorReceita extends Controller
      */
     public function index()
     {
-        //
+        $rec= Receita::all();
+        return view('receitas', compact('rec'));
     }
 
     /**
@@ -23,7 +26,7 @@ class ControladorReceita extends Controller
      */
     public function create()
     {
-        //
+        return view('novareceita');
     }
 
     /**
@@ -34,7 +37,14 @@ class ControladorReceita extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->input('valorReceita') != null && $request->input('tipoReceita') != null) {
+            $receita = new Receita();
+            $receita->valor = $request->input('valorReceita');
+            $receita->tipo_receita = $request->input('tipoReceita');
+            $receita->pessoas_id = Auth::user()->id;
+            $receita->save();
+        }
+        return redirect('/receitas');
     }
 
     /**
@@ -56,7 +66,11 @@ class ControladorReceita extends Controller
      */
     public function edit($id)
     {
-        //
+     $receita = Receita::find($id);
+     if(isset($receita)){
+        return view('editarreceita', compact('receita'));
+     }
+     return redirect('/receitas');
     }
 
     /**
@@ -68,7 +82,14 @@ class ControladorReceita extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $receita = Receita::find($id);
+        if(isset($receita) && $request->input('valorReceita') != null && $request->input('tipoReceita') != null) {
+            $receita->valor = $request->input('valorReceita');
+            $receita->tipo_receita = $request->input('tipoReceita');
+            $receita->pessoas_id = Auth::user()->id;
+            $receita->save();
+        }
+        return redirect('/receitas');
     }
 
     /**
@@ -79,6 +100,10 @@ class ControladorReceita extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rec = Receita::find($id);
+        if(isset($rec)) {
+            $rec->delete();
+        }
+        return redirect('/receitas');
     }
 }

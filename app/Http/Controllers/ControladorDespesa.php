@@ -51,7 +51,7 @@ class ControladorDespesa extends Controller
         if (isset($des)) {
             $des->valor = $request->input('valorDespesa');
             $des->tipo_despesa = $request->input('tipoDespesa');
-            $des->pessoas_id = 1;
+            $des->pessoas_id = Auth::user()->id;
             $des->save();
         }
         return redirect('/despesas');

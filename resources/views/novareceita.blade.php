@@ -4,7 +4,7 @@
 
 <div class="card border">
     <div class="card-body">
-        <form action="/receitas/{{$receita->id}}" method="POST">
+        <form action="/receitas" method="POST">
             @csrf
             <div class="form-group">
                 <label for="tipoReceita">Tipo de Receita</label>
@@ -14,8 +14,8 @@
                  <input type="text" class="form-control" name="valorReceita" 
                      id="valorReceita" placeholder="Digite valor da receita">
             </div>
-            <button type="submit" class="btn btn-primary btn-sm" style="margin-top:  20px;">Salvar</button>
-            <button type="cancel" class="btn btn-danger btn-sm" style="margin-top:  20px;">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm" style="margin-top:10px;">Salvar</button>
+            <button type="cancel" class="btn btn-danger btn-sm" style="margin-top:10px;">Cancelar</button>
         </form>
     </div>
 </div>
