@@ -5,7 +5,6 @@
     <div class="card-body">
         <h5 class="card-title" style="text-align: center">Cadastro de Despesas</h5>
 
-@if(count($des) > 0)
         <table class="table table-ordered table-hover" style="border-top: 1px ridge black">
             <thead>
                 <tr>
@@ -28,8 +27,7 @@
                 </tr>
     @endforeach                
             </tbody>
-        </table>
-@endif        
+        </table>    
     </div>
     <div class="card-footer">
         <a href="/despesas/novo" class="btn btn-sm btn-primary" role="button">Nova despesa</a>

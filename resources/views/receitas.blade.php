@@ -30,7 +30,7 @@
         </table>      
     </div>
     <div class="card-footer">
-        <a href="/receitas/novo" class="btn btn-sm btn-primary" role="button">Nova despesa</a>
+        <a href="/receitas/novo" class="btn btn-sm btn-primary" role="button">Nova receita</a>
     </div>
 </div>
 

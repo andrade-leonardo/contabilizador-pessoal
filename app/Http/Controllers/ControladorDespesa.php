@@ -10,13 +10,18 @@ class ControladorDespesa extends Controller
 {
     public function index()
     {
-        $des = Despesa::all();
+        $des = Despesa::where('pessoas_id', '=', Auth::user()->id)->get();
         return view('despesas', compact('des'));
     }
 
     public function create()
     {
         return view('novadespesa');
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
     public function store(Request $request)

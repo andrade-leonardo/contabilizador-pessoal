@@ -15,10 +15,14 @@ class ControladorReceita extends Controller
      */
     public function index()
     {
-        $rec= Receita::all();
+        $rec= Receita::where('pessoas_id', '=', Auth::user()->id)->get();
         return view('receitas', compact('rec'));
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Show the form for creating a new resource.
      *
