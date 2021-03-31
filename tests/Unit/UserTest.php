@@ -2,11 +2,14 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {
+    use DatabaseTransactions;
+    
     /** @test */
     public function checar_colunas_tabela_user()
     {
@@ -22,4 +25,33 @@ class UserTest extends TestCase
 
         $this->assertEquals(0, count($comparadorArrays));
     }
+
+     /** @test*/
+     function inserir_novo_usuario()
+    {
+
+        $us = new User([
+            'name' => 'Carla Bárbara Liz Lima',
+            'email' => 'carlabarbaralizlima__carlabarbaralizlima@edbrasil.net',
+            'password' => '561ewqeqwij'
+        ]);
+        $us->save();
+
+        $this->assertEquals('Carla Bárbara Liz Lima', $us->name);
+        $this->assertEquals('carlabarbaralizlima__carlabarbaralizlima@edbrasil.net', $us->email);
+        $this->assertEquals('561ewqeqwij', $us->password);
+    }
+
+     /** @test*/
+     public function validar_usuario_salvo_no_banco()
+     {
+         $us = User::find(1);
+ 
+         $this->assertDatabaseHas('users', [
+             'id' => $us->id,
+             'name' => $us->name,
+             'email' => $us->email,
+             'password' => $us->password
+     ]);
+     }
 }
