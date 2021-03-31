@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class Receitas extends Migration
 {
@@ -21,6 +22,14 @@ class Receitas extends Migration
             $table->foreign('pessoas_id')->references('id')->on('pessoas');
             $table->timestamps();
         });
+
+        DB::table('receitas')->insert(
+            array(
+                'valor' => '3899',
+                'tipo_receita' => 'Salário',
+                'pessoas_id' => '1'
+            )
+        );
     }
 
     /**

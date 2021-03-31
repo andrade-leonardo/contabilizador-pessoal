@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class Despesas extends Migration
 {
@@ -21,6 +22,15 @@ class Despesas extends Migration
             $table->foreign('pessoas_id')->references('id')->on('pessoas');
             $table->timestamps();
         });
+
+        
+        DB::table('despesas')->insert(
+            array(
+                'valor' => '60.40',
+                'tipo_despesa' => 'Conta de Água',
+                'pessoas_id' => '1'
+            )
+        );
     }
 
     /**

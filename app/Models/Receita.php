@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Receita extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'valor',
+        'tipo_receita',
+        'pessoas_id',
+    ];
 }
+
+

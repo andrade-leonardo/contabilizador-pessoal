@@ -2,25 +2,29 @@
 
 namespace Tests\Unit;
 
-use App\Models\Despesa;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 
 class InserirUserTest extends TestCase
-{   
+{
     use DatabaseTransactions;
-    
+
     /** @test*/
-    public function test_example()
+     function inserir_novo_usuario()
     {
-       Despesa::create([
-        'valor' => 'Carla Bárbara Liz Lima',
-        'tipo_despesa' => 'carlabarbaralizlima__carlabarbaralizlima@edbrasil.net',
-        'pessoas_id' => '1'
-       ]);
+
+        $us = new User([
+            'name' => 'Carla Bárbara Liz Lima',
+            'email' => 'carlabarbaralizlima__carlabarbaralizlima@edbrasil.net',
+            'password' => '561ewqeqwij'
+        ]);
+        $us->save();
+
+        $this->assertEquals('Carla Bárbara Liz Lima', $us->name);
+        $this->assertEquals('carlabarbaralizlima__carlabarbaralizlima@edbrasil.net', $us->email);
+        $this->assertEquals('561ewqeqwij', $us->password);
     }
 }
