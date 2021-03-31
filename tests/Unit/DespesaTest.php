@@ -9,7 +9,7 @@ class DespesaTest extends TestCase
 {
      
     /** @test */
-     public function checar_colunas_tabela_user()
+     public function checar_colunas_tabela_Despesa()
      {
          $des = new Despesa();
  
