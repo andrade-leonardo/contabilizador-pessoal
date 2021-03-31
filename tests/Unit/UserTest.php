@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use App\Models\User;
