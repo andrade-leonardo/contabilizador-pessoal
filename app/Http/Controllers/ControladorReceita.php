@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Receita;
+use App\Models\Pessoa;
+use Illuminate\Support\Facades\DB;
 
 class ControladorReceita extends Controller
 {
@@ -45,12 +47,12 @@ class ControladorReceita extends Controller
             $receita = new Receita();
             $receita->valor = $request->input('valorReceita');
             $receita->tipo_receita = $request->input('tipoReceita');
-            $receita->pessoas_id = Auth::user()->id;
+            $receita->pessoas_id =  Pessoa::where('users_id',  Auth::user()->id)->get('id')->integer();
             $receita->save();
         }
         return redirect('/receitas');
     }
-
+ 
     /**
      * Display the specified resource.
      *

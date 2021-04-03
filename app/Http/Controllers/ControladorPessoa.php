@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pessoa;
+use illuminate\Support\Facades\Auth;
 
 class ControladorPessoa extends Controller
 {
@@ -13,7 +15,7 @@ class ControladorPessoa extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -34,7 +36,10 @@ class ControladorPessoa extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pes = new Pessoa();
+        $pes->saldo = $request->input('SaldoConta');
+        $pes->users_id = Auth::user()->id;
+        $pes->save();
     }
 
     /**
