@@ -31,11 +31,6 @@ class ControladorDespesa extends Controller
         return redirect('/despesas');
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     public function edit($id)
     {
         $des = Despesa::find($id);
