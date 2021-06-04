@@ -18,13 +18,13 @@ class ReceitaTest extends TestCase
         $rec = new Receita([
             'valor' => 1513,
             'tipo_receita' => 'Salário',
-            'pessoas_id' => 1
+            'users_id' => 1
         ]);
         $rec->save();
 
         $this->assertEquals(1513, $rec->valor);
         $this->assertEquals('Salário', $rec->tipo_receita);
-        $this->assertEquals(1, $rec->pessoas_id);
+        $this->assertEquals(1, $rec->users_id);
     }
 
     /** @test*/
@@ -33,12 +33,12 @@ class ReceitaTest extends TestCase
         $rec = Receita::find(1);
         $rec->valor = 278;
         $rec->tipo_receita = 'Décimo Terceiro';
-        $rec->pessoas_id = 1;
+        $rec->users_id = 1;
         $rec->save();
 
         $this->assertEquals(278, $rec->valor);
         $this->assertEquals('Décimo Terceiro', $rec->tipo_receita);
-        $this->assertEquals(1, $rec->pessoas_id);
+        $this->assertEquals(1, $rec->users_id);
     }
 
     /** @test*/

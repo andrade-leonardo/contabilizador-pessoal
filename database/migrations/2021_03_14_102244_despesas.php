@@ -18,17 +18,16 @@ class Despesas extends Migration
             $table->id();
             $table->decimal('valor');
             $table->string('tipo_despesa');
-            $table->unsignedBigInteger('pessoas_id');
-            $table->foreign('pessoas_id')->references('id')->on('pessoas');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
         });
 
-        
         DB::table('despesas')->insert(
             array(
                 'valor' => '60.40',
                 'tipo_despesa' => 'Conta de Água',
-                'pessoas_id' => '1'
+                'users_id' => '1'
             )
         );
     }

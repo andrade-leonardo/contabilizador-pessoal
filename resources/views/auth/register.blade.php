@@ -61,14 +61,12 @@
                             </div>
                         </div>
 
-                        
-                            <div class="form-group row" style="margin-bottom: 10px">
-                                <label for="" class="col-md-4 col-form-label text-md-right">{{__('Saldo em Conta') }}</label>
-                                <div class="col-md-6">
-                                 <input id="saldo" type="text" class="form-control" name="SaldoConta" required>
-                                </div>
+                        <div class="form-group row" style="margin-bottom: 10px">
+                            <label for="" class="col-md-4 col-form-label text-md-right">{{__('Saldo em Conta') }}</label>
+                            <div class="col-md-6">
+                            <input id="saldo" type="text" class="form-control" name="saldo" required>
                             </div>
-                      
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

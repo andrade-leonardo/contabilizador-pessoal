@@ -8,11 +8,11 @@
             @csrf
             <div class="form-group">
                 <label for="tipoReceita">Tipo de Receita</label>
-                <input type="text" class="form-control" name="tipoReceita" 
-                       id="tipoReceita" placeholder="Digite o tipo de receita">
+                <input type="text" class="form-control" name="tipoReceita"
+                       id="tipoReceita" placeholder="Digite o tipo de receita" required>
                 <label for="valorReceita">Valor</label>
-                 <input type="text" class="form-control" name="valorReceita" 
-                     id="valorReceita" placeholder="Digite valor da receita">
+                 <input type="text" class="form-control" name="valorReceita"
+                     id="valorReceita" placeholder="Digite valor da receita" required>
             </div>
             <button type="submit" class="btn btn-primary btn-sm" style="margin-top:10px;">Salvar</button>
             <button type="cancel" class="btn btn-danger btn-sm" style="margin-top:10px;">Cancelar</button>

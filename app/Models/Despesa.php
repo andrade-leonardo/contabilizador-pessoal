@@ -12,6 +12,6 @@ class Despesa extends Model
     protected $fillable = [
         'valor',
         'tipo_despesa',
-        'pessoas_id',
+        'users_id',
     ];
 }

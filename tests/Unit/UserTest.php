@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class UserTest extends TestCase
 {
     use DatabaseTransactions;
-    
+
     /** @test */
     public function checar_colunas_tabela_user()
     {
@@ -17,6 +17,7 @@ class UserTest extends TestCase
 
         $expected = [
             'name',
+            'saldo',
             'email',
             'password'
         ];
@@ -32,12 +33,14 @@ class UserTest extends TestCase
 
         $us = new User([
             'name' => 'Carla Bárbara Liz Lima',
+            'saldo' => '2312',
             'email' => 'carlabarbaralizlima__carlabarbaralizlima@edbrasil.net',
             'password' => '561ewqeqwij'
         ]);
         $us->save();
 
         $this->assertEquals('Carla Bárbara Liz Lima', $us->name);
+        $this->assertEquals('2312', $us->saldo);
         $this->assertEquals('carlabarbaralizlima__carlabarbaralizlima@edbrasil.net', $us->email);
         $this->assertEquals('561ewqeqwij', $us->password);
     }
@@ -46,10 +49,11 @@ class UserTest extends TestCase
      public function validar_usuario_salvo_no_banco()
      {
          $us = User::find(1);
- 
+
          $this->assertDatabaseHas('users', [
              'id' => $us->id,
              'name' => $us->name,
+             'saldo' => $us->saldo,
              'email' => $us->email,
              'password' => $us->password
      ]);

@@ -12,7 +12,7 @@ class Receita extends Model
     protected $fillable = [
         'valor',
         'tipo_receita',
-        'pessoas_id',
+        'users_id',
     ];
 }
 

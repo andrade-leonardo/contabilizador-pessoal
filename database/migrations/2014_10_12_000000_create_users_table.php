@@ -17,18 +17,20 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->decimal('saldo');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
-        
+
         DB::table('users')->insert(
             array(
                 'name' => 'Jorge Amado',
                 'email' => 'teste@gmail.com',
-                'password' => '$2y$10$zoAQiCL6LGPLmkNGkcdzOO4LGf4d45nviSZtjyEJQI3pTDw2YMLGq'
+                'password' => '$2y$10$zoAQiCL6LGPLmkNGkcdzOO4LGf4d45nviSZtjyEJQI3pTDw2YMLGq',
+                'saldo' => '123123'
             )
         );
     }

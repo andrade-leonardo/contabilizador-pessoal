@@ -8,11 +8,11 @@
             @csrf
             <div class="form-group">
                 <label for="tipoDespesa">Tipo de Despesa</label>
-                <input type="text" class="form-control" name="tipoDespesa" 
-                       id="tipoDespesa" placeholder="Tipo de despesa">
+                <input type="text" class="form-control" name="tipoDespesa"
+                       id="tipoDespesa" placeholder="Tipo de despesa" required>
                 <label for="valorDespesa">Valor</label>
-                 <input type="text" class="form-control" name="valorDespesa" 
-                     id="valorDespesa" placeholder="Valor da Despesa">
+                 <input type="text" class="form-control" name="valorDespesa"
+                     id="valorDespesa" placeholder="Valor da Despesa" required>
             </div>
             <button type="submit" class="btn btn-primary btn-sm" style="margin-top:10px;">Salvar</button>
             <button type="cancel" class="btn btn-danger btn-sm" style="margin-top:10px;">Cancelar</button>

@@ -10,7 +10,7 @@ class ControladorDespesa extends Controller
 {
     public function index()
     {
-        $des = Despesa::where('pessoas_id', '=', Auth::user()->id)->get();
+        $des = Despesa::where('users_id', '=', Auth::user()->id)->get();
         return view('despesas', compact('des'));
     }
 
@@ -19,18 +19,13 @@ class ControladorDespesa extends Controller
         return view('novadespesa');
     }
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function store(Request $request)
     {
         if ($request->input('valorDespesa') != null && $request->input('tipoDespesa') != null) {
             $des = new Despesa();
             $des->valor = $request->input('valorDespesa');
             $des->tipo_despesa = $request->input('tipoDespesa');
-            $des->pessoas_id = Auth::user()->id;
+            $des->users_id = Auth::user()->id;
             $des->save();
         }
         return redirect('/despesas');
@@ -56,7 +51,7 @@ class ControladorDespesa extends Controller
         if (isset($des)) {
             $des->valor = $request->input('valorDespesa');
             $des->tipo_despesa = $request->input('tipoDespesa');
-            $des->pessoas_id = Auth::user()->id;
+            $des->users_id = Auth::id();
             $des->save();
         }
         return redirect('/despesas');

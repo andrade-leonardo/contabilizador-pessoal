@@ -18,8 +18,8 @@ class Receitas extends Migration
             $table->id();
             $table->decimal('valor');
             $table->string('tipo_receita');
-            $table->unsignedBigInteger('pessoas_id');
-            $table->foreign('pessoas_id')->references('id')->on('pessoas');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
         });
 
@@ -27,7 +27,7 @@ class Receitas extends Migration
             array(
                 'valor' => '3899',
                 'tipo_receita' => 'Salário',
-                'pessoas_id' => '1'
+                'users_id' => '1'
             )
         );
     }
