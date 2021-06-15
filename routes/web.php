@@ -43,4 +43,3 @@ Route::get('/receitas/editar/{id}', [App\Http\Controllers\ControladorReceita::cl
 Route::post('/receitas/{id}', [App\Http\Controllers\ControladorReceita::class, 'update']);
 
 
-Route::post('/home', [APP\Http\Controllers\ControladorPessoa::class], 'store');

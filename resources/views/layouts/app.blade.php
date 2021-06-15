@@ -23,11 +23,11 @@
             overflow: hidden;
             background-color: #333;
           }
-          
+
           li {
             float: left;
           }
-          
+
           li a {
             display: block;
             color: white;
@@ -35,7 +35,7 @@
             padding: 14px 16px;
             text-decoration: none;
           }
-          
+
           li a:hover {
             background-color: black;
             text-decoration: none;
