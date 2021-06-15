@@ -12,8 +12,9 @@
                     </ul>
                 </navbar>
                 <div>
-                    <h1 class="header" style="text-align: center; text-shadow:2px 2px 5px gray; font-family:Arial, Helvetica, sans-serif; color:#0048BA; margin-top: 15px;">Home</h1>
-                    <hr>
+                    <h1 class="header" style="text-align: center; text-shadow:2px 2px 5px gray; font-family:Arial, Helvetica, sans-serif; color:#0048BA; margin-top: 15px;">Saldo atual</h1>
+                    <h2 class="header" name="saldo">{{$user->saldo}}</h2>
+
                 </div>
             </div>
         </div>
