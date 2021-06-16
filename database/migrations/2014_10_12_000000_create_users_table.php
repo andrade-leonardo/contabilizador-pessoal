@@ -33,14 +33,6 @@ class CreateUsersTable extends Migration
                 'saldo' => '123123'
             )
         );
-        DB::table('users')->insert(
-            array(
-                'name' => 'Matt Damon',
-                'email' => 'dale@gmail.com',
-                'password' => '$2y$10$zoAQiCL6LGPLmkNGkcdzOO4LGf4d45nviSZtjyEJQI3pTDw2YMLGq',
-                'saldo' => '3050'
-            )
-        );
     }
 
     /**
