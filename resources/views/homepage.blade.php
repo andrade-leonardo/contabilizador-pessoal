@@ -1,20 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container"  >
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <navbar>
-                    <ul class="homelist">
+                <nav>
+                    <ul class="homelist listagem">
                         <li><a href="/despesas">Despesas</a></li>
                         <li><a href="/receitas">Receitas</a></li>
                     </ul>
-                </navbar>
-                <div>
-                    <h1 class="header" style="text-align: center; text-shadow:2px 2px 5px gray; font-family:Arial, Helvetica, sans-serif; color:#0048BA; margin-top: 15px;">Saldo atual</h1>
-                    <h2 class="header" name="saldo">{{$user->saldo}}</h2>
-
+                </nav>
+                <div style="background: rgb(236, 236, 236)">
+                    <h1 style="color: rgb(54, 20, 20); font-size: 40px;">Projeto </br> GCS</h1>
                 </div>
             </div>
         </div>

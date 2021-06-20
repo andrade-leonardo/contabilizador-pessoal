@@ -36,11 +36,21 @@
             text-decoration: none;
           }
 
-          li a:hover {
-            background-color: black;
-            text-decoration: none;
-            color:white
-          }
+          .listagem li a:hover {
+              background-color: black;
+              text-decoration: none;
+              color:white
+            }
+
+          h1 {
+             color: #ffffff;
+             font-family: 'Raleway',sans-serif;
+             font-size: 62px; font-weight: 800;
+             line-height: 72px; margin: 0 0 24px;
+             text-align: center;
+             text-transform: uppercase;
+            }
+
     </style>
 </head>
 <body>
