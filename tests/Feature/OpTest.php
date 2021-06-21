@@ -43,4 +43,32 @@ class OpTest extends TestCase
         $rec = new Receita(['valor' => 1450, 'tipo_receita' => 'Salário', 'users_id' => 1]);
         return $rec;
     }
+
+    public function validaUsuario($overrides = [])
+    {
+        return array_merge([
+            'name'          => 'required',
+            'saldo'      => 'required|numeric',
+            'email'    => 'required',
+            'password'    => 'required',
+        ], $overrides);
+    }
+
+    public function validaDespesa($overrides = [])
+    {
+        return array_merge([
+            'valor'          => 'required|numeric',
+            'tipo_despesa'      => 'required',
+            'users_id'    => 'required|date_format:d/m/Y',
+        ], $overrides);
+    }
+
+    public function validaReceita($overrides = [])
+    {
+        return array_merge([
+            'valor'          => 'required|numeric',
+            'tipo_despesa'      => 'required',
+            'users_id'    => 'required|numeric',
+        ], $overrides);
+    }
 }
