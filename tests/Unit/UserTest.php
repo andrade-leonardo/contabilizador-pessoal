@@ -44,18 +44,4 @@ class UserTest extends TestCase
         $this->assertEquals('carlabarbaralizlima__carlabarbaralizlima@edbrasil.net', $us->email);
         $this->assertEquals('561ewqeqwij', $us->password);
     }
-
-     /** @test*/
-     public function validar_usuario_salvo_no_banco()
-     {
-         $us = User::find(1);
-
-         $this->assertDatabaseHas('users', [
-             'id' => $us->id,
-             'name' => $us->name,
-             'saldo' => $us->saldo,
-             'email' => $us->email,
-             'password' => $us->password
-     ]);
-     }
 }
