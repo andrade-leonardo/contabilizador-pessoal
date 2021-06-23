@@ -59,7 +59,7 @@ class OpTest extends TestCase
         return array_merge([
             'valor'          => 'required|numeric',
             'tipo_despesa'      => 'required',
-            'users_id'    => 'required|date_format:d/m/Y',
+            'users_id'    => 'required|numeric',
         ], $overrides);
     }
 
