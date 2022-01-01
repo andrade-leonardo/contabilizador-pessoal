@@ -5,6 +5,7 @@ Aplicação web feita com Laravel de um gerenciador de despesas pessoais.
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
+- [Composer](https://getcomposer.org/)
 - [PHP](https://www.php.net/)
 - [Laravel](https://laravel.com/)
 - [PHPUnit](https://phpunit.de/)
